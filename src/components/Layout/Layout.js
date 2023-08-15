@@ -13,7 +13,7 @@ const Layout = ({ children, title, toolbarHeight }) => {
   
   return (
     <ThemeProvider theme={currentTheme}>
-      <CssBaseline />
+      <CssBaseline enableColorScheme />
       <Box sx={{ display: "flex" }}>
         <AppBarComponent
           open={open}
