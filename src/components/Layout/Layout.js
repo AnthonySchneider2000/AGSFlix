@@ -24,8 +24,9 @@ const Layout = ({ children, title, toolbarHeight }) => {
         <Box
           component="main"
           sx={{
+            marginTop: "63px",
             flexGrow: 1,
-            height: "100vh",
+            height: "calc(100vh - 63px)",
             overflow: "auto",
             // // disable scrollbar
             // scrollbarWidth: "none",

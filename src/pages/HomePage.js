@@ -28,7 +28,7 @@ const LotsOfButtons = () => {
 const HomePage = () => {
   
   return (
-    <Layout title="Home" toolbarHeight={100}>
+    <Layout title="Home">
       <Box
         sx={{
           display: "flex",
