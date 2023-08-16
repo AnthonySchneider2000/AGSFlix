@@ -28,7 +28,7 @@ const ShowsRow = ({ children, genre }) => {
       }}
     >
       {" "}
-      <Typography variant="h5" sx={{ color: "white", fontWeight: "bold" }}>
+      <Typography variant="h5" sx={{ fontWeight: "bold" }}>
         {genre}
       </Typography>
       <Box
