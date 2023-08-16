@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
-import { mainListItems, adminListItems } from './listItems';
+import { mainListItems } from './listItems';
 import { useThemeContext } from '../../../utils/ThemeContext';
 import { drawerWidth } from '../../../utils/constants';
 
