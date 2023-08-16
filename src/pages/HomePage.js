@@ -1,49 +1,14 @@
 import React from "react";
 import Layout from "../components/Layout/Layout";
-import { Box, Button } from "@mui/material";
-
-const LotsOfButtons = () => {
-  return (
-    <>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-      <Button variant="contained">Test</Button>
-    </>
-  );
-};
+import { Paper } from "@mui/material";
 
 const HomePage = () => {
-  
   return (
-    <Layout title="Home">
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "center",
-        }}
-      >
-        <LotsOfButtons />
-        <LotsOfButtons />
-        <LotsOfButtons />
-        <LotsOfButtons />
-      </Box>
-    </Layout>
+    <Layout title="Home" useCustomScrollbar>
+      {/* long paper, just so I can test scrolling*/}
+      <Paper sx={{ height: "200vh" }} />
 
+    </Layout>
   );
 };
 
