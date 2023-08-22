@@ -70,7 +70,7 @@ const ShowsRow = ({ children, genre }) => {
   );
 };
 
-const Show = ({ imgSrc }) => {
+const Show = ({ imgSrc, title, description }) => {
   return (
     <Card
       sx={{
@@ -103,10 +103,10 @@ const Show = ({ imgSrc }) => {
           }}
         >
           <Typography variant="h6" textAlign="center">
-            Show Title
+            {title || "Show Title"}
           </Typography>
           <Typography variant="body1" textAlign="center">
-            Description
+            {description || "Show Description"}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -121,12 +121,41 @@ const ShowsRow1 = () => {
         imgSrc={
           "https://www.southernliving.com/thmb/Rz-dYEhwq_82C5_Y9GLH2ZlEoYw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gettyimages-837898820-1-4deae142d4d0403dbb6cb542bfc56934.jpg"
         }
+        title="Golden Retriever"
+        description="Movie: 1 hour 30 minutes"
       />
-      <Show />
-      <Show />
-      <Show />
-      <Show />
-      <Show />
+      <Show
+        imgSrc={
+          "https://i.imgur.com/w8K0pgb.png"
+        }
+        title="Komodo Dragon"
+        description="Series: 3 Seasons"
+      />
+      <Show
+        imgSrc={
+          "https://i.natgeofe.com/k/66d3a80c-f4c3-4410-845c-3543375eaa85/cheetah-watching.jpg"
+        }
+        title="Cheetah"
+        description="Movie: 1 hour 30 minutes"
+      />
+      <Show
+        imgSrc={
+          "https://www.denofgeek.com/wp-content/uploads/2020/04/Nat-Geo-WILD-Social-Distancing-Otter.jpg?fit=1294%2C787"
+        }
+        title="Otter"
+        description="Series: 2 Seasons"
+      />
+      <Show
+        imgSrc={
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCk7nHcF5KVy76IqPwsHBb0Kvvhl4y75RJGg"
+        }
+        title="Water Buffalo"
+        description="Movie: 1 hour 30 minutes"
+      />
+      <Show
+        title={"Lizard"}
+        description={"Series: 2 Seasons"}
+      />
 
     </>
   );
@@ -135,9 +164,27 @@ const ShowsRow1 = () => {
 const ShowsRow2 = () => {
   return (
     <>
-      <Show />
-      <Show />
-      <Show />
+      <Show 
+        imgSrc={
+          "https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/646987-jasin-boland-c-2012-warner-bros-entertainment-inc-54e2f8c553776eafbfd8ede11121a700.jpg"
+        }
+        title="Final Fight"
+        description="Movie: 1 hour 30 minutes"
+      />
+      <Show 
+        imgSrc={
+          "https://i.imgur.com/EJJr54n.png"
+        }
+        title="John Wick"
+        description="Movie: 1 hour 30 minutes"
+      />
+      <Show
+        imgSrc={
+          "https://hips.hearstapps.com/hmg-prod/images/best-action-movies-1657201809.jpg"
+        }
+        title="Edge of Tomorrow"
+        description="Movie: 1 hour 30 minutes"
+      />
     </>
   );
 };
