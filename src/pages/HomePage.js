@@ -16,6 +16,8 @@ import {
   comedyData,
   animatedData,
 } from "../components/HomePage/ShowData";
+import { useShowDataContext } from "../utils/ShowContext";
+import { useNavigate } from "react-router-dom";
 
 const border = "none";
 
@@ -79,7 +81,17 @@ const ShowsRow = ({ children, genre }) => {
   );
 };
 
-const Show = ({ imgSrc, title, description }) => {
+const Show = ({ showJson, imgSrc, title, description }) => {
+  //handle click
+  const { updateCurrentShow } = useShowDataContext();
+  const navigate = useNavigate();
+  const handleClick = () => {
+    //update current show
+    updateCurrentShow(showJson);
+    //open show page with react router
+    navigate("/show");
+  };
+
   return (
     <Card
       sx={{
@@ -115,6 +127,7 @@ const Show = ({ imgSrc, title, description }) => {
             variant="h6"
             textAlign="center"
             sx={{ whiteSpace: "nowrap" }}
+            onClick={handleClick}
           >
             {title || "Show Title"}
           </Typography>
@@ -240,6 +253,7 @@ const ShowsRow3 = () => {
     <>
       {horrorData.map((show) => (
         <Show
+          showJson={show}
           key={show.imdbID}
           imgSrc={show.Poster}
           title={show.Title}
@@ -257,6 +271,7 @@ const ShowsRow4 = () => {
     <>
       {comedyData.map((show) => (
         <Show
+          showJson={show}
           key={show.imdbID}
           imgSrc={show.Poster}
           title={show.Title}
@@ -276,6 +291,7 @@ const ShowsRow5 = () => {
     <>
       {animatedData.map((show) => (
         <Show
+          showJson={show}
           key={show.imdbID}
           imgSrc={show.Poster}
           title={show.Title}
@@ -287,6 +303,8 @@ const ShowsRow5 = () => {
     </>
   );
 };
+
+
 
 const HomePage = () => {
   return (
