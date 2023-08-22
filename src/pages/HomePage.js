@@ -290,7 +290,7 @@ const ShowsRow5 = () => {
 
 const HomePage = () => {
   return (
-    <Layout title="Home" disableScrollbar>
+    <Layout title="AGSFlix" disableScrollbar>
       <ShowsRowsContainer>
         <ShowsRow genre="Horror">
           <ShowsRow3 />
