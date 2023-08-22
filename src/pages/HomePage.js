@@ -97,7 +97,7 @@ const Show = ({ imgSrc, title, description }) => {
         <CardMedia
           component="img"
           sx={{
-            height: "min(150px,10vh)",
+            height: "min(200px,12vh)",
           }}
           image={
             imgSrc ||
