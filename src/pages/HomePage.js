@@ -11,7 +11,11 @@ import {
   Paper,
 } from "@mui/material";
 import BookmarkButton from "../components/HomePage/BookmarkButton";
-import {horrorData} from "../components/HomePage/ShowData";
+import {
+  horrorData,
+  comedyData,
+  animatedData,
+} from "../components/HomePage/ShowData";
 
 const border = "none";
 
@@ -19,7 +23,7 @@ const ShowsRowsContainer = ({ children }) => {
   return (
     <Box
       sx={{
-        height: "200vh",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         // padding: "min(1%, 20px) 0",
@@ -107,7 +111,11 @@ const Show = ({ imgSrc, title, description }) => {
             height: "min(85px,10vh)",
           }}
         >
-          <Typography variant="h6" textAlign="center" sx={{ whiteSpace: 'nowrap' }}>
+          <Typography
+            variant="h6"
+            textAlign="center"
+            sx={{ whiteSpace: "nowrap" }}
+          >
             {title || "Show Title"}
           </Typography>
           <Typography variant="body1" textAlign="center">
@@ -115,7 +123,6 @@ const Show = ({ imgSrc, title, description }) => {
           </Typography>
         </CardContent>
         <BookmarkButton />
-        
       </CardActionArea>
     </Card>
   );
@@ -191,29 +198,35 @@ const ShowsRow2 = () => {
 const ShowsRow3 = () => {
   // const [shows, setShows] = React.useState([]);
   // useEffect(() => {
-  //   //horror movies
+  //   //animated movies
   //   const showNames = [
-  //     "Nightmare on Elm Street",
-  //     "The Exorcist",
-  //     "The Grudge",
-  //     "The Shining",
-  //     "The Ring",
+  //     "Up",
+  //     "The Nightmare Before Christmas",
+  //     "Coraline",
+  //     "The Lion King",
+  //     "The Incredibles",
+  //     "The Incredibles 2",
+  //     "The Lego Movie",
+  //     "Teen Titans",
+  //     "Teen Titans Go",
   //   ];
 
   //   const key = process.env.REACT_APP_API_KEY;
   //   console.log(key);
 
   //   const fetchShows = async () => {
-  //     const fetchedShowData = await Promise.all(showNames.map(name => {
-  //       return fetch(`http://www.omdbapi.com/?t=${name}&apikey=${key}`)
-  //         .then(res => res.json())
-  //         .catch(error => {
-  //           console.error(`Error fetching show data for ${name}:`, error);
-  //           return null;
-  //         });
-  //     }));
+  //     const fetchedShowData = await Promise.all(
+  //       showNames.map((name) => {
+  //         return fetch(`http://www.omdbapi.com/?t=${name}&apikey=${key}`)
+  //           .then((res) => res.json())
+  //           .catch((error) => {
+  //             console.error(`Error fetching show data for ${name}:`, error);
+  //             return null;
+  //           });
+  //       })
+  //     );
 
-  //     const validShows = fetchedShowData.filter(show => show !== null);
+  //     const validShows = fetchedShowData.filter((show) => show !== null);
 
   //     console.log(JSON.stringify(validShows, null, 2));
 
@@ -223,23 +236,57 @@ const ShowsRow3 = () => {
   //   fetchShows();
   // }, []);
 
-  
-
   return (
     <>
-      {horrorData.map(show => (
+      {horrorData.map((show) => (
         <Show
           key={show.imdbID}
           imgSrc={show.Poster}
           title={show.Title}
-          description={`${show.Type.charAt(0).toUpperCase() + show.Type.slice(1)}: ${show.Runtime}`}
+          description={`${
+            show.Type.charAt(0).toUpperCase() + show.Type.slice(1)
+          }: ${show.Runtime}`}
         />
       ))}
     </>
   );
-  
 };
 
+const ShowsRow4 = () => {
+  return (
+    <>
+      {comedyData.map((show) => (
+        <Show
+          key={show.imdbID}
+          imgSrc={show.Poster}
+          title={show.Title}
+          description={`${
+            show.Type.charAt(0).toUpperCase() + show.Type.slice(1)
+          }: ${show.Runtime}`}
+        />
+      ))}
+    </>
+  );
+};
+
+const ShowsRow5 = () => {
+  console.log(animatedData);
+  console.log(comedyData);
+  return (
+    <>
+      {animatedData.map((show) => (
+        <Show
+          key={show.imdbID}
+          imgSrc={show.Poster}
+          title={show.Title}
+          description={`${
+            show.Type.charAt(0).toUpperCase() + show.Type.slice(1)
+          }: ${show.Runtime}`}
+        />
+      ))}
+    </>
+  );
+};
 
 const HomePage = () => {
   return (
@@ -253,6 +300,12 @@ const HomePage = () => {
         </ShowsRow>
         <ShowsRow genre="Horror">
           <ShowsRow3 />
+        </ShowsRow>
+        <ShowsRow genre="Comedy">
+          <ShowsRow4 />
+        </ShowsRow>
+        <ShowsRow genre="Animated">
+          <ShowsRow5 />
         </ShowsRow>
       </ShowsRowsContainer>
     </Layout>
