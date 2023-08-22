@@ -45,10 +45,14 @@ const ShowsRow = ({ children, genre }) => {
         maxHeight: "min(30%, 400px)",
         padding: "min(1%, 20px) 0",
         borderRadius: "0",
+        transition: "background-color 0.3s ease-in-out",
+        backgroundColor: "rgba(0, 0, 0, 0)",
+        "&:hover": {
+          backgroundColor: "rgba(0, 0, 0, 0.30)", // Change the background color on hover
+        },
       }}
       elevation={2}
     >
-      {" "}
       <Typography
         variant="h5"
         sx={{ fontWeight: "bold", padding: "0 0 min(1%, 20px) min(1%, 20px)" }}
@@ -66,11 +70,15 @@ const ShowsRow = ({ children, genre }) => {
           overflowX: "scroll",
           overflowY: "hidden",
           padding: "0 min(1%, 20px)",
+          backgroundColor: "inherit",
+          WebkitBackgroundClip: "text",
           "&::-webkit-scrollbar": {
             height: "0.8em",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
           },
           "&::-webkit-scrollbar-thumb": {
-            background: "rgba(0, 0, 0, 0.4)", // Adjust the alpha value (last parameter) to control transparency
+            backgroundColor: "inherit",
             borderRadius: "1em",
           },
         }}
@@ -285,8 +293,6 @@ const ShowsRow4 = () => {
 };
 
 const ShowsRow5 = () => {
-  console.log(animatedData);
-  console.log(comedyData);
   return (
     <>
       {animatedData.map((show) => (
@@ -303,8 +309,6 @@ const ShowsRow5 = () => {
     </>
   );
 };
-
-
 
 const HomePage = () => {
   return (
