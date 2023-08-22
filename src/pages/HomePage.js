@@ -1,4 +1,5 @@
-import React, {useEffect} from "react";
+import React from "react";
+// import { useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import {
   Box,
@@ -35,7 +36,7 @@ const ShowsRow = ({ children, genre }) => {
     <Paper
       sx={{
         border: { border },
-        maxHeight: "min(30%, 300px)",
+        maxHeight: "min(30%, 400px)",
         padding: "min(1%, 20px) 0",
         borderRadius: "0",
       }}
