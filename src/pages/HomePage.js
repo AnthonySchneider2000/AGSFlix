@@ -9,6 +9,7 @@ import {
   CardActionArea,
   Paper,
 } from "@mui/material";
+import BookmarkButton from "../components/HomePage/BookmarkButton";
 
 const border = "none";
 
@@ -40,7 +41,10 @@ const ShowsRow = ({ children, genre }) => {
       elevation={2}
     >
       {" "}
-      <Typography variant="h5" sx={{ fontWeight: "bold", padding: "0 0 min(1%, 20px) min(1%, 20px)" }}>
+      <Typography
+        variant="h5"
+        sx={{ fontWeight: "bold", padding: "0 0 min(1%, 20px) min(1%, 20px)" }}
+      >
         {genre}
       </Typography>
       <Box
@@ -61,7 +65,6 @@ const ShowsRow = ({ children, genre }) => {
             background: "rgba(0, 0, 0, 0.4)", // Adjust the alpha value (last parameter) to control transparency
             borderRadius: "1em",
           },
-
         }}
       >
         {children}
@@ -109,6 +112,8 @@ const Show = ({ imgSrc, title, description }) => {
             {description || "Show Description"}
           </Typography>
         </CardContent>
+        <BookmarkButton />
+        
       </CardActionArea>
     </Card>
   );
@@ -125,9 +130,7 @@ const ShowsRow1 = () => {
         description="Movie: 1 hour 30 minutes"
       />
       <Show
-        imgSrc={
-          "https://i.imgur.com/w8K0pgb.png"
-        }
+        imgSrc={"https://i.imgur.com/w8K0pgb.png"}
         title="Komodo Dragon"
         description="Series: 3 Seasons"
       />
@@ -152,11 +155,7 @@ const ShowsRow1 = () => {
         title="Water Buffalo"
         description="Movie: 1 hour 30 minutes"
       />
-      <Show
-        title={"Lizard"}
-        description={"Series: 2 Seasons"}
-      />
-
+      <Show title={"Lizard"} description={"Series: 2 Seasons"} />
     </>
   );
 };
@@ -164,17 +163,15 @@ const ShowsRow1 = () => {
 const ShowsRow2 = () => {
   return (
     <>
-      <Show 
+      <Show
         imgSrc={
           "https://images2.minutemediacdn.com/image/upload/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/646987-jasin-boland-c-2012-warner-bros-entertainment-inc-54e2f8c553776eafbfd8ede11121a700.jpg"
         }
         title="Final Fight"
         description="Movie: 1 hour 30 minutes"
       />
-      <Show 
-        imgSrc={
-          "https://i.imgur.com/EJJr54n.png"
-        }
+      <Show
+        imgSrc={"https://i.imgur.com/EJJr54n.png"}
         title="John Wick"
         description="Movie: 1 hour 30 minutes"
       />
@@ -198,7 +195,6 @@ const ShowsRow3 = () => {
     </>
   );
 };
-
 
 const HomePage = () => {
   return (
