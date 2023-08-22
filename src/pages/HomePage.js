@@ -34,13 +34,13 @@ const ShowsRow = ({ children, genre }) => {
       sx={{
         border: { border },
         maxHeight: "min(30%, 300px)",
-        padding: "min(2%, 20px)",
+        padding: "min(1%, 20px) 0",
         borderRadius: "0",
       }}
       elevation={2}
     >
       {" "}
-      <Typography variant="h5" sx={{ fontWeight: "bold", paddingBottom: "min(1%, 20px)" }}>
+      <Typography variant="h5" sx={{ fontWeight: "bold", padding: "0 0 min(1%, 20px) min(1%, 20px)" }}>
         {genre}
       </Typography>
       <Box
@@ -53,6 +53,15 @@ const ShowsRow = ({ children, genre }) => {
           width: "100%",
           overflowX: "scroll",
           overflowY: "hidden",
+          padding: "0 min(1%, 20px)",
+          "&::-webkit-scrollbar": {
+            height: "0.8em",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            background: "rgba(0, 0, 0, 0.4)", // Adjust the alpha value (last parameter) to control transparency
+            borderRadius: "1em",
+          },
+
         }}
       >
         {children}
@@ -72,6 +81,7 @@ const Show = ({ imgSrc }) => {
         maxHeight: "min(30%, 300px)",
         borderRadius: "5%",
         paddingBottom: 0,
+        marginBottom: "min(1%, 20px)",
       }}
     >
       <CardActionArea>
@@ -89,6 +99,7 @@ const Show = ({ imgSrc }) => {
         <CardContent
           sx={{
             padding: "min(5%, 20px)",
+            height: "min(85px,10vh)",
           }}
         >
           <Typography variant="h6" textAlign="center">
@@ -144,7 +155,7 @@ const ShowsRow3 = () => {
 
 const HomePage = () => {
   return (
-    <Layout title="Home">
+    <Layout title="Home" disableScrollbar>
       <ShowsRowsContainer>
         <ShowsRow genre="Nature">
           <ShowsRow1 />
