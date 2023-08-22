@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Layout from "../components/Layout/Layout";
 import {
   Box,
@@ -10,6 +10,7 @@ import {
   Paper,
 } from "@mui/material";
 import BookmarkButton from "../components/HomePage/BookmarkButton";
+import {horrorData} from "../components/HomePage/ShowData";
 
 const border = "none";
 
@@ -187,14 +188,57 @@ const ShowsRow2 = () => {
 };
 
 const ShowsRow3 = () => {
+  // const [shows, setShows] = React.useState([]);
+  // useEffect(() => {
+  //   //horror movies
+  //   const showNames = [
+  //     "Nightmare on Elm Street",
+  //     "The Exorcist",
+  //     "The Grudge",
+  //     "The Shining",
+  //     "The Ring",
+  //   ];
+
+  //   const key = process.env.REACT_APP_API_KEY;
+  //   console.log(key);
+
+  //   const fetchShows = async () => {
+  //     const fetchedShowData = await Promise.all(showNames.map(name => {
+  //       return fetch(`http://www.omdbapi.com/?t=${name}&apikey=${key}`)
+  //         .then(res => res.json())
+  //         .catch(error => {
+  //           console.error(`Error fetching show data for ${name}:`, error);
+  //           return null;
+  //         });
+  //     }));
+
+  //     const validShows = fetchedShowData.filter(show => show !== null);
+
+  //     console.log(JSON.stringify(validShows, null, 2));
+
+  //     setShows(validShows);
+  //   };
+
+  //   fetchShows();
+  // }, []);
+
+  
+
   return (
     <>
-      <Show />
-      <Show />
-      <Show />
+      {horrorData.map(show => (
+        <Show
+          key={show.imdbID}
+          imgSrc={show.Poster}
+          title={show.Title}
+          description={`${show.Type.charAt(0).toUpperCase() + show.Type.slice(1)}: ${show.Runtime}`}
+        />
+      ))}
     </>
   );
+  
 };
+
 
 const HomePage = () => {
   return (
@@ -206,7 +250,7 @@ const HomePage = () => {
         <ShowsRow genre="Action">
           <ShowsRow2 />
         </ShowsRow>
-        <ShowsRow genre="Comedy">
+        <ShowsRow genre="Horror">
           <ShowsRow3 />
         </ShowsRow>
       </ShowsRowsContainer>
