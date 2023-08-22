@@ -107,7 +107,7 @@ const Show = ({ imgSrc, title, description }) => {
             height: "min(85px,10vh)",
           }}
         >
-          <Typography variant="h6" textAlign="center">
+          <Typography variant="h6" textAlign="center" sx={{ whiteSpace: 'nowrap' }}>
             {title || "Show Title"}
           </Typography>
           <Typography variant="body1" textAlign="center">
