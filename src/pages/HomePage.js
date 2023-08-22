@@ -292,12 +292,6 @@ const HomePage = () => {
   return (
     <Layout title="Home" disableScrollbar>
       <ShowsRowsContainer>
-        <ShowsRow genre="Nature">
-          <ShowsRow1 />
-        </ShowsRow>
-        <ShowsRow genre="Action">
-          <ShowsRow2 />
-        </ShowsRow>
         <ShowsRow genre="Horror">
           <ShowsRow3 />
         </ShowsRow>
@@ -306,6 +300,12 @@ const HomePage = () => {
         </ShowsRow>
         <ShowsRow genre="Animated">
           <ShowsRow5 />
+        </ShowsRow>
+        <ShowsRow genre="Nature">
+          <ShowsRow1 />
+        </ShowsRow>
+        <ShowsRow genre="Action">
+          <ShowsRow2 />
         </ShowsRow>
       </ShowsRowsContainer>
     </Layout>
