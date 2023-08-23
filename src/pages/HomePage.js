@@ -91,11 +91,13 @@ const ShowsRow = ({ children, genre }) => {
 
 const Show = ({ showJson, imgSrc, title, description }) => {
   //handle click
-  const { updateCurrentShow } = useShowDataContext();
+  const { updateCurrentShow, updateShowTitle } = useShowDataContext();
   const navigate = useNavigate();
   const handleClick = () => {
     //update current show
     updateCurrentShow(showJson);
+    //update show title
+    updateShowTitle(title);
     //open show page with react router
     navigate("/show");
   };
@@ -112,6 +114,7 @@ const Show = ({ showJson, imgSrc, title, description }) => {
         paddingBottom: 0,
         marginBottom: "min(1%, 20px)",
       }}
+      onClick={handleClick}
     >
       <CardActionArea>
         <CardMedia
@@ -135,7 +138,6 @@ const Show = ({ showJson, imgSrc, title, description }) => {
             variant="h6"
             textAlign="center"
             sx={{ whiteSpace: "nowrap" }}
-            onClick={handleClick}
           >
             {title || "Show Title"}
           </Typography>
