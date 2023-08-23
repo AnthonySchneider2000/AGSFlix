@@ -114,13 +114,15 @@ export default function ShowPage() {
             flexDirection: "row",
             alignItems: "flex-start",
             width: "100%",
-            maxHeight: "50vh",
+            height: "50%",
           }}
         >
           <img
             src={showPoster}
             alt={showTitle}
             style={{
+              width: "min(30%, 300px)",
+              minHeight: "min(45vh, 450px)",
               margin: "1em",
               borderRadius: "1.5em",
               boxShadow: `12px 12px 1em 0px #303030`,
@@ -184,7 +186,7 @@ export default function ShowPage() {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: isMovie ? "center" : "flex-start",
-                padding: "0 min(3%, 50px)", 
+                padding: "0 min(3%, 50px)",
                 width: "100%",
                 gap: "min(3%, 50px)",
 
