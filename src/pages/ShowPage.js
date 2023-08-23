@@ -37,9 +37,13 @@ const EpisodeCard = () => {
         <CardActionArea>
           <CardMedia
             component="img"
-            height="140"
             image={showPoster}
             alt={pageTitle}
+            sx={{
+                height: "min(200px,15vh)",
+                objectFit: "cover",
+              objectPosition: "top",
+            }}
           />
           <CardContent>
             <Typography
@@ -51,6 +55,7 @@ const EpisodeCard = () => {
               {pageTitle}
             </Typography>
             <Typography
+            textAlign="center"
               variant="body2"
               color="text.secondary"
               sx={{

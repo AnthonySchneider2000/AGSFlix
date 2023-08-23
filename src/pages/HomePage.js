@@ -127,6 +127,8 @@ const Show = ({ showJson, imgSrc, title, description }) => {
           component="img"
           sx={{
             height: "min(200px,12vh)",
+            objectFit: "cover",
+            objectPosition: "top",
           }}
           image={
             imgSrc ||
