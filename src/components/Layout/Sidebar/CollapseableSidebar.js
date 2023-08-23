@@ -47,13 +47,13 @@ const CollapseableSidebar = ({ open, toggleDrawer }) => {
     console.log("searchValue", searchValue);
 
     const key = process.env.REACT_APP_API_KEY;
-    const url = `https://www.omdbapi.com/?apikey=${key}&s=${searchValue}`;
+    const url = `https://www.omdbapi.com/?apikey=${key}&t=${searchValue}`;
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", data.Search);
-        updateCurrentShow(data.Search[0]);
+        console.log("data", data);
+        updateCurrentShow(data);
         navigate("/show", { state: { data } });
       })
       .catch((error) => {
