@@ -91,13 +91,19 @@ const ShowsRow = ({ children, genre }) => {
 
 const Show = ({ showJson, imgSrc, title, description }) => {
   //handle click
-  const { updateCurrentShow, updateShowTitle } = useShowDataContext();
+  const { updateCurrentShow, updateLessInfoShowJson } = useShowDataContext();
   const navigate = useNavigate();
+  //make imgsrc, title, description into a json object
+  const lessInfoShowJson = {
+    Poster: imgSrc,
+    Title: title,
+    Description: description,
+  };
   const handleClick = () => {
     //update current show
     updateCurrentShow(showJson);
     //update show title
-    updateShowTitle(title);
+    updateLessInfoShowJson(lessInfoShowJson);
     //open show page with react router
     navigate("/show");
   };

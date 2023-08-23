@@ -9,18 +9,17 @@ export const useShowDataContext = () => {
 export const ShowDataContextProvider = ({ children }) => {
     //store json about current show
     const [currentShow, setCurrentShow] = useState(null);
-    const [showTitle, setShowTitle] = useState(null);
+    const [lessInfoShowJson, setLessInfoShowJson] = useState(null);
     
     //update current show
     const updateCurrentShow = (show) => {
         setCurrentShow(show);
     }
 
-    //update show title
-    const updateShowTitle = (title) => {
-        setShowTitle(title);
+    //update less info show json
+    const updateLessInfoShowJson = (show) => {
+        setLessInfoShowJson(show);
     }
-
 
 
   // You can define more functions as needed to modify show data
@@ -30,8 +29,8 @@ export const ShowDataContextProvider = ({ children }) => {
       value={{
         currentShow,
         updateCurrentShow,
-        showTitle,
-        updateShowTitle,
+        lessInfoShowJson,
+        updateLessInfoShowJson,
         // You can add other functions and state variables here
       }}
     >
