@@ -10,21 +10,17 @@ import {
   CardContent,
   CardActionArea,
 } from "@mui/material";
+import { getShowData } from "../utils/showDataUtils";
 
-const EpisodeCard = () => {
+const EpisodeCard = ( {episodeNum} ) => {
   const { currentShow, lessInfoShowJson } = useShowDataContext();
-  const showTitle = lessInfoShowJson ? lessInfoShowJson.Title : null;
-  const pageTitle = currentShow
-    ? currentShow.Title
-    : showTitle
-    ? showTitle
-    : "Placeholder Title";
-  const showPoster = currentShow
-    ? currentShow.Poster
-    : lessInfoShowJson
-    ? lessInfoShowJson.Poster
-    : null;
+  const { isMovie, showTitle, showPoster, showPlot } = getShowData(
+    currentShow || lessInfoShowJson
+  );
 
+  const description = !isMovie ? `Episode ${episodeNum}` : showPlot;
+
+  
   return (
     <>
       <Card
@@ -38,7 +34,7 @@ const EpisodeCard = () => {
           <CardMedia
             component="img"
             image={showPoster}
-            alt={pageTitle}
+            alt={showTitle}
             sx={{
               height: "min(200px,15vh)",
               objectFit: "cover",
@@ -52,7 +48,7 @@ const EpisodeCard = () => {
               variant="h5"
               component="div"
             >
-              {pageTitle}
+              {showTitle}
             </Typography>
             <Typography
               textAlign="center"
@@ -66,11 +62,7 @@ const EpisodeCard = () => {
                 "-webkit-box-orient": "vertical",
               }}
             >
-              {currentShow
-                ? currentShow.Plot
-                : lessInfoShowJson
-                ? lessInfoShowJson.Plot
-                : null}
+              {description}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -79,21 +71,26 @@ const EpisodeCard = () => {
   );
 };
 
+const SeriesCards = () => {
+    // render a card for each episode using a for loop
+    
+    const numberOfEpisodes = 10;
+    const episodeCards = [];
+    for (let i = 1; i <= numberOfEpisodes; i++) {
+        episodeCards.push(<EpisodeCard episodeNum={i} />);
+    }
+    return (
+        <>
+            {episodeCards}
+        </>
+    )
+};
+
 export default function ShowPage() {
   const { currentShow, lessInfoShowJson } = useShowDataContext();
-  const showTitle = lessInfoShowJson ? lessInfoShowJson.Title : null;
-  const pageTitle = currentShow
-    ? currentShow.Title
-    : showTitle
-    ? showTitle
-    : "Placeholder Title";
-  const showPoster = currentShow
-    ? currentShow.Poster
-    : lessInfoShowJson
-    ? lessInfoShowJson.Poster
-    : null;
-
-  const isMovie = currentShow ? currentShow.Type === "movie" : false;
+  const { isMovie, showTitle, showPoster } = getShowData(
+    currentShow || lessInfoShowJson
+  );
 
   return (
     <Layout>
@@ -140,7 +137,7 @@ export default function ShowPage() {
             }}
           >
             <Typography textAlign="center" variant="h1">
-              {pageTitle}
+              {showTitle}
             </Typography>
             <Typography
               textAlign="center"
@@ -210,16 +207,7 @@ export default function ShowPage() {
                 <EpisodeCard />
               ) : (
                 <>
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
-                  <EpisodeCard />
+                  <SeriesCards />
                 </>
               )}
             </Box>
