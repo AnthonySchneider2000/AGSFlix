@@ -40,8 +40,8 @@ const EpisodeCard = () => {
             image={showPoster}
             alt={pageTitle}
             sx={{
-                height: "min(200px,15vh)",
-                objectFit: "cover",
+              height: "min(200px,15vh)",
+              objectFit: "cover",
               objectPosition: "top",
             }}
           />
@@ -55,7 +55,7 @@ const EpisodeCard = () => {
               {pageTitle}
             </Typography>
             <Typography
-            textAlign="center"
+              textAlign="center"
               variant="body2"
               color="text.secondary"
               sx={{
@@ -156,56 +156,68 @@ export default function ShowPage() {
           </Box>
         </Box>
 
-        <Paper
+        <Box
           sx={{
-            width: "100%",
-            height: "100%",
             display: "flex",
             flexDirection: "column",
+            alignItems: "center",
             justifyContent: "center",
-            maxHeight: "50vh",
+            width: "100%",
+            height: "100%",
+            flexGrow: "1",
           }}
-          elevation={2}
         >
-          <Box
+          <Paper
             sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: isMovie ? "center" : "flex-start",
-              padding: "0 min(3%, 50px)",
               width: "100%",
-              gap: "min(3%, 50px)",
-
-              overflowX: "scroll",
-              overflowY: "hidden",
-              "&::-webkit-scrollbar": {
-                height: "0.8em",
-              },
-              "&::-webkit-scrollbar-thumb": {
-                backgroundColor: "rgba(0, 0, 0, 0.30)",
-                borderRadius: "1em",
-              },
+              padding: "min(5%, 50px) 0",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              maxHeight: "50vh",
             }}
+            elevation={2}
           >
-            {isMovie ? (
-              <EpisodeCard />
-            ) : (
-              <>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: isMovie ? "center" : "flex-start",
+                padding: "0 min(3%, 50px)",
+                width: "100%",
+                gap: "min(3%, 50px)",
+
+                overflowX: "scroll",
+                overflowY: "hidden",
+                "&::-webkit-scrollbar": {
+                  height: "0.8em",
+                },
+                "&::-webkit-scrollbar-thumb": {
+                  backgroundColor: "rgba(0, 0, 0, 0.30)",
+                  borderRadius: "1em",
+                },
+              }}
+            >
+              {isMovie ? (
                 <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-                <EpisodeCard />
-              </>
-            )}
-          </Box>
-        </Paper>
+              ) : (
+                <>
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                  <EpisodeCard />
+                </>
+              )}
+            </Box>
+          </Paper>
+        </Box>
       </Box>
     </Layout>
   );
