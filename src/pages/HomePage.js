@@ -17,8 +17,9 @@ import {
   animatedData,
 } from "../components/HomePage/ShowData";
 import { useShowDataContext } from "../utils/ShowContext";
-import { useNavigate } from "react-router-dom";
 import { useThemeContext } from "../utils/ThemeContext";
+import { useNavigate } from "react-router-dom";
+import { getShowRuntime } from "../utils/showDataUtils";
 
 const border = "none";
 
@@ -270,6 +271,8 @@ const ShowsRow3 = () => {
   //   fetchShows();
   // }, []);
 
+  
+
   return (
     <>
       {horrorData.map((show) => (
@@ -280,7 +283,7 @@ const ShowsRow3 = () => {
           title={show.Title}
           description={`${
             show.Type.charAt(0).toUpperCase() + show.Type.slice(1)
-          }: ${show.Runtime}`}
+          }: ${getShowRuntime(show)}`}
         />
       ))}
     </>
@@ -298,7 +301,7 @@ const ShowsRow4 = () => {
           title={show.Title}
           description={`${
             show.Type.charAt(0).toUpperCase() + show.Type.slice(1)
-          }: ${show.Runtime}`}
+          }: ${getShowRuntime(show)}`}
         />
       ))}
     </>
@@ -316,7 +319,7 @@ const ShowsRow5 = () => {
           title={show.Title}
           description={`${
             show.Type.charAt(0).toUpperCase() + show.Type.slice(1)
-          }: ${show.Runtime}`}
+          }: ${getShowRuntime(show)}`}
         />
       ))}
     </>
