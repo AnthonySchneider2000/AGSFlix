@@ -170,7 +170,7 @@ export default function ShowPage() {
           <Paper
             sx={{
               width: "100%",
-              padding: "min(5%, 50px) 0",
+              padding: "min(5%, 50px) 0 min(4%, 30px) 0", // the formatting for 4 is top, right, bottom, left
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -184,7 +184,7 @@ export default function ShowPage() {
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: isMovie ? "center" : "flex-start",
-                padding: "0 min(3%, 50px)",
+                padding: "0 min(3%, 50px)", 
                 width: "100%",
                 gap: "min(3%, 50px)",
 
