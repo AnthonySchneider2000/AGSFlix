@@ -10,17 +10,16 @@ import {
   CardContent,
   CardActionArea,
 } from "@mui/material";
-import { getShowData } from "../utils/showDataUtils";
+import { getShowData, getShowRuntime } from "../utils/showDataUtils";
 
 const EpisodeCard = ( {episodeNum} ) => {
   const { currentShow, lessInfoShowJson } = useShowDataContext();
-  const { isMovie, showTitle, showPoster, showPlot } = getShowData(
+  const { isMovie, showTitle, showPoster } = getShowData(
     currentShow || lessInfoShowJson
   );
 
-  const description = !isMovie ? `Episode ${episodeNum}` : showPlot;
+  const description = isMovie ? getShowRuntime(currentShow) : `Episode ${episodeNum}`;
 
-  
   return (
     <>
       <Card
@@ -73,7 +72,6 @@ const EpisodeCard = ( {episodeNum} ) => {
 
 const SeriesCards = () => {
     // render a card for each episode using a for loop
-    
     const numberOfEpisodes = 10;
     const episodeCards = [];
     for (let i = 1; i <= numberOfEpisodes; i++) {
