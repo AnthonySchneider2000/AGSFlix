@@ -147,6 +147,11 @@ export default function ShowPage() {
               variant="h4"
               sx={{
                 width: "80%",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                display: "-webkit-box",
+                "-webkit-line-clamp": "3",
+                "-webkit-box-orient": "vertical",
               }}
             >
               {currentShow
