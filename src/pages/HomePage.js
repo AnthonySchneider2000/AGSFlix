@@ -18,6 +18,7 @@ import {
 } from "../components/HomePage/ShowData";
 import { useShowDataContext } from "../utils/ShowContext";
 import { useNavigate } from "react-router-dom";
+import { useThemeContext } from "../utils/ThemeContext";
 
 const border = "none";
 
@@ -90,22 +91,20 @@ const ShowsRow = ({ children, genre }) => {
 };
 
 const Show = ({ showJson, imgSrc, title, description }) => {
-  //handle click
+  const { isDarkMode } = useThemeContext();
   const { updateCurrentShow, updateLessInfoShowJson } = useShowDataContext();
   const navigate = useNavigate();
-  //make imgsrc, title, description into a json object
+
+
   const lessInfoShowJson = {
     Poster: imgSrc,
     Title: title,
     Description: description,
   };
   const handleClick = () => {
-    //update current show
     updateCurrentShow(showJson);
-    //update show title
     updateLessInfoShowJson(lessInfoShowJson);
-    //open show page with react router
-    navigate("/show");
+    navigate("/show"); //open show page with react router
   };
 
   return (
@@ -119,6 +118,10 @@ const Show = ({ showJson, imgSrc, title, description }) => {
         borderRadius: "5%",
         paddingBottom: 0,
         marginBottom: "min(1%, 20px)",
+        background: "inherit",
+        "&:hover": {
+          background: isDarkMode ? "inherit" : "rgba(0, 0, 0, 0.20)",
+        },
       }}
       onClick={handleClick}
     >
