@@ -26,7 +26,7 @@ export const ThemeContextProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState(darkTheme);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
