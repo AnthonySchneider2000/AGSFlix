@@ -7,7 +7,7 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { drawerWidth } from "../../utils/constants";
+import { drawerWidth, maxDrawerWidth } from "../../utils/constants";
 import MuteSwitch from "./MuteSwitch";
 
 const AppBarContainer = styled(MuiAppBar, {
@@ -20,7 +20,8 @@ const AppBarContainer = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: `calc(100% - ${drawerWidth})`,
+    minWidth: `calc(100% - ${maxDrawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,

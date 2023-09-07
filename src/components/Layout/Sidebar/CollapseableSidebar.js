@@ -8,7 +8,7 @@ import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import MainListItems from "./listItems";
 import { useThemeContext } from "../../../utils/ThemeContext";
-import { drawerWidth } from "../../../utils/constants";
+import { drawerWidth, maxDrawerWidth } from '../../../utils/constants';
 import { useNavigate } from "react-router-dom";
 import { useShowDataContext } from "../../../utils/ShowContext";
 
@@ -19,6 +19,7 @@ const DrawerContainer = styled(MuiDrawer, {
     position: "relative",
     whiteSpace: "nowrap",
     width: drawerWidth,
+    maxWidth: maxDrawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
