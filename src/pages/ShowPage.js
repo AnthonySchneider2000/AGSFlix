@@ -134,15 +134,15 @@ export default function ShowPage() {
               flexGrow: "1",
             }}
           >
-            <Typography textAlign="center" variant="h1">
+            <Typography textAlign="center" sx={{fontSize: "min(min(6vh, 200px),10vw)"}}>
               {showTitle}
             </Typography>
             <Typography
               textAlign="center"
-              variant="h4"
               sx={{
                 width: "80%",
                 overflow: "hidden",
+                fontSize: "min(min(3vh, 30px),6vw)",
                 textOverflow: "ellipsis",
                 display: "-webkit-box",
                 "-webkit-line-clamp": "3",
